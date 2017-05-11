@@ -1,0 +1,15 @@
+sudo: required
+
+language: java
+
+services:
+  - docker
+
+install:
+  - docker run -d --name tomcat tomcat
+  - docker run --name some-postgres -e POSTGRES_HOST=localhost -e POSTGRES_PORT=5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=kurs_tracks -d postgres:9.3
+  - mvn compile
+  - docker build -t my_app_component_tracks src/main/docker
+
+script:
+  - docker run --link tomcat:tomcat --link some-postgres:postgres my_app_component_tracks /bin/sh
