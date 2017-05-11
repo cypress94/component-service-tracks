@@ -38,11 +38,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>ru.belyaeva.rsoi</groupId>
-            <artifactId>component-common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
